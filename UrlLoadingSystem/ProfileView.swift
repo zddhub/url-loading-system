@@ -10,6 +10,10 @@ import SwiftUI
 struct ProfileView: View {
   @ObservedObject var viewModel: ProfileViewModel
 
+  init(url: String) {
+    viewModel = ProfileViewModel(url: url)
+  }
+
   var body: some View {
     HStack {
       Image(uiImage: UIImage.init(systemName: "circle")!)
@@ -53,8 +57,6 @@ struct ProfileView: View {
 
 struct ProfileView_Previews: PreviewProvider {
   static var previews: some View {
-    ProfileView(viewModel: ProfileViewModel(
-      url: "https://zddhub.com/assets/profile.json"
-    ))
+    ProfileView(url: "https://zddhub.com/assets/profile.json")
   }
 }
