@@ -42,7 +42,7 @@ struct ProfileView: View {
 
   private var profileCard: some View {
     HStack {
-      Image(uiImage: UIImage.init(systemName: "person.crop.circle")!)
+      Image(uiImage: viewModel.avatar)
         .resizable()
         .frame(width: 120, height: 120)
         .cornerRadius(80)
