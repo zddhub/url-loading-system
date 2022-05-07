@@ -30,8 +30,6 @@ class ProfileViewModel: ObservableObject {
 
   @Published private var avatarData: Data?
 
-  @Published var isFetching = false
-
   @Published private var model: Profile? {
     didSet {
       if oldValue?.avatar != model?.avatar {
@@ -46,14 +44,12 @@ class ProfileViewModel: ObservableObject {
   }
 
   func loadData(_ type: LoadingMethodType) {
-    self.isFetching = true
     self.model = nil
     let loadingMethod = type.strategy(url: url)
     loadingMethod.load()
     loadingMethod.model.sink(receiveValue: { model in
       DispatchQueue.main.async {
         self.model = model
-        self.isFetching = false
       }
     })
     .store(in: &cancellable)

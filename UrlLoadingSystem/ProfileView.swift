@@ -17,7 +17,7 @@ struct ProfileView: View {
 
   var body: some View {
     VStack {
-      profile
+      profileCard
       controllerPanel
     }
     .background(Color(UIColor.systemGroupedBackground).edgesIgnoringSafeArea(.all))
@@ -26,17 +26,6 @@ struct ProfileView: View {
     }
     .onChange(of: loadingMethodType) { newValue in
       viewModel.loadData(newValue)
-    }
-  }
-
-  private var profile: some View {
-    Group {
-      if !viewModel.isFetching {
-        profileCard
-      } else {
-        Text("loading ...")
-          .padding()
-      }
     }
   }
 
