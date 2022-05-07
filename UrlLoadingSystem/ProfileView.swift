@@ -9,35 +9,48 @@ import SwiftUI
 
 struct ProfileView: View {
   @ObservedObject var viewModel: ProfileViewModel
+  @State private var loadingMethodType: LoadingMethodType = .combineApi
 
   init(url: String) {
     viewModel = ProfileViewModel(url: url)
   }
 
   var body: some View {
-    HStack {
-      Image(uiImage: UIImage.init(systemName: "circle")!)
-        .resizable()
-        .frame(width: 120, height: 120)
-        .cornerRadius(80)
-        .background(.white)
-        .clipShape(Circle())
-        .padding(8)
+    VStack {
+      HStack {
+        Image(uiImage: UIImage.init(systemName: "circle")!)
+          .resizable()
+          .frame(width: 120, height: 120)
+          .cornerRadius(80)
+          .background(.white)
+          .clipShape(Circle())
+          .padding(8)
 
-      VStack(alignment: .leading) {
-        Text(viewModel.name)
-          .font(.title)
+        VStack(alignment: .leading) {
+          Text(viewModel.name)
+            .font(.title)
 
-        HStack {
-          Image(systemName: "mail")
-          Text("\(viewModel.email)")
-        }
+          HStack {
+            Image(systemName: "mail")
+            Text("\(viewModel.email)")
+          }
 
-        HStack {
-          Image(systemName: "link")
-          Text("\(viewModel.blog)")
+          HStack {
+            Image(systemName: "link")
+            Text("\(viewModel.blog)")
+          }
         }
       }
+
+      Form {
+        Text("Method")
+        Picker("Method", selection: $loadingMethodType) {
+          Text("Async API").tag(LoadingMethodType.asyncApi)
+          Text("Combine API").tag(LoadingMethodType.combineApi)
+        }
+        .pickerStyle(.wheel)
+      }
+      .padding(0)
     }
     .frame(maxWidth: .infinity, alignment: .leading)
     .background(Color(UIColor.systemGroupedBackground).edgesIgnoringSafeArea(.all))
@@ -50,7 +63,7 @@ struct ProfileView: View {
     )
     .padding()
     .onAppear {
-      viewModel.loadData()
+      viewModel.loadData(loadingMethodType)
     }
   }
 }
