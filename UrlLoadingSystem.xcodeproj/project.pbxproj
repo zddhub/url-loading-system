@@ -14,6 +14,8 @@
 		B574534E2826B26D00C5B798 /* UrlLoadingSystemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B574534D2826B26D00C5B798 /* UrlLoadingSystemTests.swift */; };
 		B57453582826B26D00C5B798 /* UrlLoadingSystemUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57453572826B26D00C5B798 /* UrlLoadingSystemUITests.swift */; };
 		B574535A2826B26D00C5B798 /* UrlLoadingSystemUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57453592826B26D00C5B798 /* UrlLoadingSystemUITestsLaunchTests.swift */; };
+		B57453692826B62800C5B798 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57453682826B62800C5B798 /* ProfileView.swift */; };
+		B574536B2826B77900C5B798 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B574536A2826B77900C5B798 /* ProfileViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +46,8 @@
 		B57453532826B26D00C5B798 /* UrlLoadingSystemUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UrlLoadingSystemUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B57453572826B26D00C5B798 /* UrlLoadingSystemUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlLoadingSystemUITests.swift; sourceTree = "<group>"; };
 		B57453592826B26D00C5B798 /* UrlLoadingSystemUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlLoadingSystemUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		B57453682826B62800C5B798 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		B574536A2826B77900C5B798 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +102,8 @@
 				B574533E2826B26B00C5B798 /* ContentView.swift */,
 				B57453402826B26D00C5B798 /* Assets.xcassets */,
 				B57453422826B26D00C5B798 /* Preview Content */,
+				B57453682826B62800C5B798 /* ProfileView.swift */,
+				B574536A2826B77900C5B798 /* ProfileViewModel.swift */,
 			);
 			path = UrlLoadingSystem;
 			sourceTree = "<group>";
@@ -258,6 +264,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				B574533F2826B26B00C5B798 /* ContentView.swift in Sources */,
+				B57453692826B62800C5B798 /* ProfileView.swift in Sources */,
+				B574536B2826B77900C5B798 /* ProfileViewModel.swift in Sources */,
 				B574533D2826B26B00C5B798 /* UrlLoadingSystemApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
