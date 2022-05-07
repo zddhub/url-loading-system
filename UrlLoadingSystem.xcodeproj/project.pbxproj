@@ -19,6 +19,7 @@
 		B574536D2826BCC000C5B798 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = B574536C2826BCC000C5B798 /* Profile.swift */; };
 		B574537A2826D2CB00C5B798 /* CombineApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57453782826D2CB00C5B798 /* CombineApi.swift */; };
 		B574537B2826D2CB00C5B798 /* LoadingMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57453792826D2CB00C5B798 /* LoadingMethod.swift */; };
+		B574537D2826D8A100C5B798 /* AsyncApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = B574537C2826D8A100C5B798 /* AsyncApi.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,7 @@
 		B574536C2826BCC000C5B798 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		B57453782826D2CB00C5B798 /* CombineApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CombineApi.swift; sourceTree = "<group>"; };
 		B57453792826D2CB00C5B798 /* LoadingMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingMethod.swift; sourceTree = "<group>"; };
+		B574537C2826D8A100C5B798 /* AsyncApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncApi.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +148,7 @@
 			children = (
 				B57453782826D2CB00C5B798 /* CombineApi.swift */,
 				B57453792826D2CB00C5B798 /* LoadingMethod.swift */,
+				B574537C2826D8A100C5B798 /* AsyncApi.swift */,
 			);
 			path = LoadingMethod;
 			sourceTree = "<group>";
@@ -281,6 +284,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B574537A2826D2CB00C5B798 /* CombineApi.swift in Sources */,
+				B574537D2826D8A100C5B798 /* AsyncApi.swift in Sources */,
 				B574537B2826D2CB00C5B798 /* LoadingMethod.swift in Sources */,
 				B574533F2826B26B00C5B798 /* ContentView.swift in Sources */,
 				B574536D2826BCC000C5B798 /* Profile.swift in Sources */,

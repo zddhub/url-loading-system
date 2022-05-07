@@ -9,7 +9,7 @@ import Foundation
 import Combine
 
 class ProfileViewModel: ObservableObject {
-  var url: String
+  private var url: String
   var name: String {
     model?.name ?? ""
   }
@@ -22,7 +22,7 @@ class ProfileViewModel: ObservableObject {
 
   @Published private var model: Profile?
   private var cancellable: Set<AnyCancellable> = Set<AnyCancellable>()
-  private lazy var loadingMethod: LoadingMethod = CombineApi(url: URL(string: url)!)
+  private lazy var loadingMethod: LoadingMethod = AsyncApi(url: URL(string: url)!)
 
   init(url: String) {
     self.url = url
