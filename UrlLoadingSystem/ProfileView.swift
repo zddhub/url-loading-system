@@ -20,16 +20,7 @@ struct ProfileView: View {
       profileCard
       controllerPanel
     }
-    .frame(maxWidth: .infinity, alignment: .leading)
     .background(Color(UIColor.systemGroupedBackground).edgesIgnoringSafeArea(.all))
-    .cornerRadius(8)
-    .shadow(
-      color: .primary.opacity(0.20),
-      radius: 2,
-      x: 0.0,
-      y: 1.0
-    )
-    .padding()
     .onAppear {
       viewModel.loadData(loadingMethodType)
     }
@@ -60,6 +51,16 @@ struct ProfileView: View {
         }
       }
     }
+    .frame(maxWidth: .infinity, alignment: .leading)
+    .background(.background)
+    .cornerRadius(8)
+    .shadow(
+      color: .primary.opacity(0.20),
+      radius: 2,
+      x: 0.0,
+      y: 1.0
+    )
+    .padding()
   }
 
   private var controllerPanel: some View {
