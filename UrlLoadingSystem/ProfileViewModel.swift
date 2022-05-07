@@ -20,6 +20,8 @@ class ProfileViewModel: ObservableObject {
     model?.blog ?? ""
   }
 
+  @Published var isFetching = false
+
   @Published private var model: Profile?
   private var cancellable: Set<AnyCancellable> = Set<AnyCancellable>()
 
@@ -29,11 +31,13 @@ class ProfileViewModel: ObservableObject {
 
   func loadData(_ type: LoadingMethodType) {
     self.model = nil
+    self.isFetching = true
     let loadingMethod = type.strategy(url: url)
     loadingMethod.load()
     loadingMethod.model.sink(receiveValue: { model in
       DispatchQueue.main.async {
         self.model = model
+        self.isFetching = false
       }
     })
     .store(in: &cancellable)
