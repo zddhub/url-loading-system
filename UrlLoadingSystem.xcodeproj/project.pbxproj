@@ -16,6 +16,7 @@
 		B574535A2826B26D00C5B798 /* UrlLoadingSystemUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57453592826B26D00C5B798 /* UrlLoadingSystemUITestsLaunchTests.swift */; };
 		B57453692826B62800C5B798 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57453682826B62800C5B798 /* ProfileView.swift */; };
 		B574536B2826B77900C5B798 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B574536A2826B77900C5B798 /* ProfileViewModel.swift */; };
+		B574536D2826BCC000C5B798 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = B574536C2826BCC000C5B798 /* Profile.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,7 @@
 		B57453592826B26D00C5B798 /* UrlLoadingSystemUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlLoadingSystemUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		B57453682826B62800C5B798 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		B574536A2826B77900C5B798 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		B574536C2826BCC000C5B798 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +106,7 @@
 				B57453422826B26D00C5B798 /* Preview Content */,
 				B57453682826B62800C5B798 /* ProfileView.swift */,
 				B574536A2826B77900C5B798 /* ProfileViewModel.swift */,
+				B574536C2826BCC000C5B798 /* Profile.swift */,
 			);
 			path = UrlLoadingSystem;
 			sourceTree = "<group>";
@@ -264,6 +267,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B574533F2826B26B00C5B798 /* ContentView.swift in Sources */,
+				B574536D2826BCC000C5B798 /* Profile.swift in Sources */,
 				B57453692826B62800C5B798 /* ProfileView.swift in Sources */,
 				B574536B2826B77900C5B798 /* ProfileViewModel.swift in Sources */,
 				B574533D2826B26B00C5B798 /* UrlLoadingSystemApp.swift in Sources */,
