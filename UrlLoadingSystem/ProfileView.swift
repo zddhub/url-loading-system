@@ -17,40 +17,8 @@ struct ProfileView: View {
 
   var body: some View {
     VStack {
-      HStack {
-        Image(uiImage: UIImage.init(systemName: "circle")!)
-          .resizable()
-          .frame(width: 120, height: 120)
-          .cornerRadius(80)
-          .background(.white)
-          .clipShape(Circle())
-          .padding(8)
-
-        VStack(alignment: .leading) {
-          Text(viewModel.name)
-            .font(.title)
-
-          HStack {
-            Image(systemName: "mail")
-            Text("\(viewModel.email)")
-          }
-
-          HStack {
-            Image(systemName: "link")
-            Text("\(viewModel.blog)")
-          }
-        }
-      }
-
-      Form {
-        Text("Method")
-        Picker("Method", selection: $loadingMethodType) {
-          Text("Async API").tag(LoadingMethodType.asyncApi)
-          Text("Combine API").tag(LoadingMethodType.combineApi)
-        }
-        .pickerStyle(.wheel)
-      }
-      .padding(0)
+      profileCard
+      controllerPanel
     }
     .frame(maxWidth: .infinity, alignment: .leading)
     .background(Color(UIColor.systemGroupedBackground).edgesIgnoringSafeArea(.all))
@@ -65,6 +33,45 @@ struct ProfileView: View {
     .onAppear {
       viewModel.loadData(loadingMethodType)
     }
+  }
+
+  private var profileCard: some View {
+    HStack {
+      Image(uiImage: UIImage.init(systemName: "circle")!)
+        .resizable()
+        .frame(width: 120, height: 120)
+        .cornerRadius(80)
+        .background(.white)
+        .clipShape(Circle())
+        .padding(8)
+
+      VStack(alignment: .leading) {
+        Text(viewModel.name)
+          .font(.title)
+
+        HStack {
+          Image(systemName: "mail")
+          Text("\(viewModel.email)")
+        }
+
+        HStack {
+          Image(systemName: "link")
+          Text("\(viewModel.blog)")
+        }
+      }
+    }
+  }
+
+  private var controllerPanel: some View {
+    Form {
+      Text("Method")
+      Picker("Method", selection: $loadingMethodType) {
+        Text("Async API").tag(LoadingMethodType.asyncApi)
+        Text("Combine API").tag(LoadingMethodType.combineApi)
+      }
+      .pickerStyle(.wheel)
+    }
+    .padding(0)
   }
 }
 
