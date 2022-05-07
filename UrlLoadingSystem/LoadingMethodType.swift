@@ -15,6 +15,7 @@ enum LoadingMethodType {
   case asyncApi
   case completionHandlerApi
   case combineApi
+  case normalApi
 }
 
 extension LoadingMethodType: LoadingMethodStrategy {
@@ -26,6 +27,8 @@ extension LoadingMethodType: LoadingMethodStrategy {
         return CompletionHandlerApi(url: URL(string: url)!)
       case .combineApi:
         return CombineApi(url: URL(string: url)!)
+      case .normalApi:
+        return NormalApi(url: URL(string: url)!)
     }
   }
 }
