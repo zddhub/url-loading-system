@@ -22,23 +22,18 @@ class ProfileViewModel: ObservableObject {
 
   @Published private var model: Profile?
   private var cancellable: Set<AnyCancellable> = Set<AnyCancellable>()
+  private lazy var loadingMethod: LoadingMethod = CombineApi(url: URL(string: url)!)
 
   init(url: String) {
     self.url = url
+
+    loadingMethod.model.sink(receiveValue: { model in
+      self.model = model
+    })
+    .store(in: &cancellable)
   }
 
   func loadData() {
-    URLSession.shared
-      .dataTaskPublisher(for: URL(string: url)!)
-      .tryMap { (data: Data, response: URLResponse) in
-        return data
-      }
-      .decode(type: Profile.self, decoder: JSONDecoder())
-      .receive(on: DispatchQueue.main)
-      .sink {_ in } receiveValue: { model in
-        self.model = model
-      }
-      .store(in: &cancellable)
-
+    loadingMethod.load()
   }
 }
