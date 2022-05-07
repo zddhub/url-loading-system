@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ProfileView: View {
   @ObservedObject var viewModel: ProfileViewModel
-  @State private var loadingMethodType: LoadingMethodType = .normalApi
+  @State private var loadingMethodType: LoadingMethodType = .asyncApi
 
   init(url: String) {
     viewModel = ProfileViewModel(url: url)
@@ -81,9 +81,9 @@ struct ProfileView: View {
     Form {
       Text("Loading method")
       Picker("Method", selection: $loadingMethodType) {
+        Text("Combine API").tag(LoadingMethodType.combineApi)
         Text("Async API").tag(LoadingMethodType.asyncApi)
         Text("Completion Handler API").tag(LoadingMethodType.completionHandlerApi)
-        Text("Combine API").tag(LoadingMethodType.combineApi)
         Text("Normal API").tag(LoadingMethodType.normalApi)
       }
       .pickerStyle(.wheel)
