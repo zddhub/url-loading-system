@@ -30,8 +30,8 @@ class ProfileViewModel: ObservableObject {
   }
 
   func loadData(_ type: LoadingMethodType) {
-    self.model = nil
     self.isFetching = true
+    self.model = nil
     let loadingMethod = type.strategy(url: url)
     loadingMethod.load()
     loadingMethod.model.sink(receiveValue: { model in

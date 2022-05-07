@@ -13,6 +13,7 @@ protocol LoadingMethodStrategy {
 
 enum LoadingMethodType {
   case asyncApi
+  case completionHandlerApi
   case combineApi
 }
 
@@ -21,6 +22,8 @@ extension LoadingMethodType: LoadingMethodStrategy {
     switch self {
       case .asyncApi:
         return AsyncApi(url: URL(string: url)!)
+      case .completionHandlerApi:
+        return CompletionHandlerApi(url: URL(string: url)!)
       case .combineApi:
         return CombineApi(url: URL(string: url)!)
     }

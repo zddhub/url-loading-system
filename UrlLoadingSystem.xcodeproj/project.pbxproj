@@ -21,6 +21,7 @@
 		B574537B2826D2CB00C5B798 /* LoadingMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57453792826D2CB00C5B798 /* LoadingMethod.swift */; };
 		B574537D2826D8A100C5B798 /* AsyncApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = B574537C2826D8A100C5B798 /* AsyncApi.swift */; };
 		B574537F282722CE00C5B798 /* LoadingMethodType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B574537E282722CE00C5B798 /* LoadingMethodType.swift */; };
+		B574538128272FE900C5B798 /* CompletionHandlerApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = B574538028272FE900C5B798 /* CompletionHandlerApi.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,7 @@
 		B57453792826D2CB00C5B798 /* LoadingMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingMethod.swift; sourceTree = "<group>"; };
 		B574537C2826D8A100C5B798 /* AsyncApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncApi.swift; sourceTree = "<group>"; };
 		B574537E282722CE00C5B798 /* LoadingMethodType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingMethodType.swift; sourceTree = "<group>"; };
+		B574538028272FE900C5B798 /* CompletionHandlerApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletionHandlerApi.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,6 +154,7 @@
 				B57453782826D2CB00C5B798 /* CombineApi.swift */,
 				B57453792826D2CB00C5B798 /* LoadingMethod.swift */,
 				B574537C2826D8A100C5B798 /* AsyncApi.swift */,
+				B574538028272FE900C5B798 /* CompletionHandlerApi.swift */,
 			);
 			path = LoadingMethod;
 			sourceTree = "<group>";
@@ -292,6 +295,7 @@
 				B574537B2826D2CB00C5B798 /* LoadingMethod.swift in Sources */,
 				B574533F2826B26B00C5B798 /* ContentView.swift in Sources */,
 				B574536D2826BCC000C5B798 /* Profile.swift in Sources */,
+				B574538128272FE900C5B798 /* CompletionHandlerApi.swift in Sources */,
 				B57453692826B62800C5B798 /* ProfileView.swift in Sources */,
 				B574536B2826B77900C5B798 /* ProfileViewModel.swift in Sources */,
 				B574533D2826B26B00C5B798 /* UrlLoadingSystemApp.swift in Sources */,
