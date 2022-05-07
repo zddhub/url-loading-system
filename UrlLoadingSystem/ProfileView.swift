@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ProfileView: View {
-  var viewModel: ProfileViewModel
+  @ObservedObject var viewModel: ProfileViewModel
 
   var body: some View {
     HStack {
@@ -45,15 +45,16 @@ struct ProfileView: View {
       y: 1.0
     )
     .padding()
+    .onAppear {
+      viewModel.loadData()
+    }
   }
 }
 
 struct ProfileView_Previews: PreviewProvider {
   static var previews: some View {
     ProfileView(viewModel: ProfileViewModel(
-      name: "zddhub",
-      email: "zddhub@gmail.com",
-      blog: "www.zddhub.com")
-    )
+      url: "https://zddhub.com/assets/profile.json"
+    ))
   }
 }
