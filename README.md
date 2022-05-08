@@ -14,6 +14,8 @@ Read article on [blog (cn)](https://zddhub.com/note/2022/05/04/url-loading-syste
 
 <img src="https://zddhub.com/assets/images/2022-05-04/url-loading-system.svg" width="100%" min-height="500px" style="background:white;">
 
+*Notice: See above SVG image only on light mode, it can be zoomed in/out.*
+
 ### Type
 | Task type                | Combine API | Async API | Completion Handler API | Normal API |
 |:-|:-|:-|:-|:-|
