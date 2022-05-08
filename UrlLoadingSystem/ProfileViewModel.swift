@@ -10,7 +10,6 @@ import Combine
 import UIKit
 
 class ProfileViewModel: ObservableObject {
-  var url: String
   var name: String {
     model?.name ?? ""
   }
@@ -30,6 +29,8 @@ class ProfileViewModel: ObservableObject {
     }
     return UIImage(data: avatarData!) ?? UIImage.init(systemName: "person.crop.circle")!
   }
+
+  private var url: String
 
   @Published private var avatarData: Data?
 
