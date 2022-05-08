@@ -12,7 +12,7 @@ Read article on [blog (cn)](https://zddhub.com/note/2022/05/04/url-loading-syste
 
 ## API Overviews
 
-<img src="https://zddhub.com/assets/images/2022-05-04/url-loading-system.svg" width="100%" min-height="500px" background="white">
+<img src="https://zddhub.com/assets/images/2022-05-04/url-loading-system.svg" width="100%" min-height="500px" style="background:white;">
 
 ### Type
 | Task type                | Combine API | Async API | Completion Handler API | Normal API |
