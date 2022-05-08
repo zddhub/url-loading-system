@@ -8,8 +8,12 @@
 import Foundation
 import Combine
 
-class NormalApi: LoadingMethod {
-  var model = CurrentValueSubject<Profile?, Never>(nil)
+class NormalApi<Model: Decodable>: LoadingMethod<Model> {
+  override var model: CurrentValueSubject<Model?, Never> {
+    storedModel
+  }
+
+  private var storedModel = CurrentValueSubject<Model?, Never>(nil)
 
   private var url: URL
 
@@ -17,7 +21,7 @@ class NormalApi: LoadingMethod {
     self.url = url
   }
 
-  func load() {
+  override func load() {
     let session = URLSession(configuration: URLSessionConfiguration.default)
     let task = session.dataTask(with: url)
     task.delegate = coordinator
@@ -32,15 +36,15 @@ class NormalApi: LoadingMethod {
   }
 
   class Coordinator: NSObject, URLSessionDataDelegate {
-    var loadingMethod: LoadingMethod
+    var loadingMethod: LoadingMethod<Model>
     private var data: Data? = nil
 
-    init(_ loadingMethod: LoadingMethod) {
+    init(_ loadingMethod: LoadingMethod<Model>) {
       self.loadingMethod = loadingMethod
     }
 
     func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: Error?) {
-      guard error == nil, let data = data, let model = try? JSONDecoder().decode(Profile.self, from: data) else {
+      guard error == nil, let data = data, let model = try? JSONDecoder().decode(Model.self, from: data) else {
         self.data = nil
         return
       }

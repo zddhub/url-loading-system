@@ -8,8 +8,12 @@
 import Foundation
 import Combine
 
-class AsyncApi: LoadingMethod {
-  var model = CurrentValueSubject<Profile?, Never>(nil)
+class AsyncApi<Model: Decodable>: LoadingMethod<Model> {
+  override var model: CurrentValueSubject<Model?, Never> {
+    storedModel
+  }
+
+  private var storedModel = CurrentValueSubject<Model?, Never>(nil)
 
   private var url: URL
 
@@ -17,7 +21,7 @@ class AsyncApi: LoadingMethod {
     self.url = url
   }
 
-  func load() {
+  override func load() {
     Task {
       do {
         let (data, response) = try await URLSession.shared.data(from: url)
@@ -29,7 +33,7 @@ class AsyncApi: LoadingMethod {
         }
 
         if let mimeType = httpResponse.mimeType, mimeType == "application/json",
-           let model = try? JSONDecoder().decode(Profile.self, from: data) {
+           let model = try? JSONDecoder().decode(Model.self, from: data) {
           self.model.send(model)
         }
       } catch {

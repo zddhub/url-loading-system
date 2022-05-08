@@ -8,8 +8,12 @@
 import Foundation
 import Combine
 
-class CombineApi: LoadingMethod {
-  var model = CurrentValueSubject<Profile?, Never>(nil)
+class CombineApi<Model: Decodable>: LoadingMethod<Model> {
+  override var model: CurrentValueSubject<Model?, Never> {
+    storedModel
+  }
+
+  private var storedModel = CurrentValueSubject<Model?, Never>(nil)
 
   private var cancellable: Set<AnyCancellable> = Set<AnyCancellable>()
   private var url: URL
@@ -18,13 +22,13 @@ class CombineApi: LoadingMethod {
     self.url = url
   }
 
-  func load() {
+  override func load() {
     URLSession.shared
       .dataTaskPublisher(for: url)
       .tryMap { (data: Data, response: URLResponse) in
         return data
       }
-      .decode(type: Profile.self, decoder: JSONDecoder())
+      .decode(type: Model.self, decoder: JSONDecoder())
       .receive(on: DispatchQueue.main)
       .sink {_ in } receiveValue: { model in
         self.model.send(model)

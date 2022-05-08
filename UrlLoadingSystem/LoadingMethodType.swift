@@ -8,7 +8,8 @@
 import Foundation
 
 protocol LoadingMethodStrategy {
-  func strategy(url: String) -> LoadingMethod
+  associatedtype Model: Decodable
+  func strategy(url: String) -> LoadingMethod<Model>
 }
 
 enum LoadingMethodType {
@@ -19,16 +20,18 @@ enum LoadingMethodType {
 }
 
 extension LoadingMethodType: LoadingMethodStrategy {
-  func strategy(url: String) -> LoadingMethod {
+  typealias Model = Profile
+
+  func strategy(url: String) -> LoadingMethod<Profile> {
     switch self {
       case .asyncApi:
-        return AsyncApi(url: URL(string: url)!)
+        return AsyncApi<Profile>(url: URL(string: url)!)
       case .completionHandlerApi:
-        return CompletionHandlerApi(url: URL(string: url)!)
+        return CompletionHandlerApi<Profile>(url: URL(string: url)!)
       case .combineApi:
-        return CombineApi(url: URL(string: url)!)
+        return CombineApi<Profile>(url: URL(string: url)!)
       case .normalApi:
-        return NormalApi(url: URL(string: url)!)
+        return NormalApi<Profile>(url: URL(string: url)!)
     }
   }
 }

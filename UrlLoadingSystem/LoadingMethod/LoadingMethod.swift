@@ -8,7 +8,19 @@
 import Foundation
 import Combine
 
-protocol LoadingMethod {
-  var model: CurrentValueSubject<Profile?, Never> { get }
+protocol LoadingMethodProtocol {
+  associatedtype Output: Decodable
+  var model: CurrentValueSubject<Output?, Never> { get }
   func load()
+}
+
+class LoadingMethod<Model: Decodable>: LoadingMethodProtocol {
+  var model: CurrentValueSubject<Model?, Never> {
+    CurrentValueSubject<Model?, Never>(nil)
+  }
+
+  func load() {
+    fatalError("Never run here")
+  }
+
 }

@@ -8,15 +8,20 @@
 import Foundation
 import Combine
 
-class CompletionHandlerApi: LoadingMethod {
-  var model = CurrentValueSubject<Profile?, Never>(nil)
+class CompletionHandlerApi<Model: Decodable>: LoadingMethod<Model> {
+  override var model: CurrentValueSubject<Model?, Never> {
+    storedModel
+  }
+
+  private var storedModel = CurrentValueSubject<Model?, Never>(nil)
+
   private var url: URL
 
   init(url: URL) {
     self.url = url
   }
 
-  func load() {
+  override func load() {
     let task = URLSession.shared.dataTask(with: url) { data, response, error in
       if let error = error {
         print("Client error \(error)")
@@ -31,7 +36,7 @@ class CompletionHandlerApi: LoadingMethod {
 
       if let mimeType = httpResponse.mimeType, mimeType == "application/json",
          let data = data,
-         let model = try? JSONDecoder().decode(Profile.self, from: data) {
+         let model = try? JSONDecoder().decode(Model.self, from: data) {
          self.model.send(model)
       }
     }
