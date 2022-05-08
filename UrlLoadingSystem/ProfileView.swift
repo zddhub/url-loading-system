@@ -11,6 +11,8 @@ struct ProfileView: View {
   @ObservedObject var viewModel: ProfileViewModel
   @State private var loadingMethodType: LoadingMethodType = .asyncApi
 
+  @Environment(\.colorScheme) var colorScheme
+
   init(url: String) {
     viewModel = ProfileViewModel(url: url)
   }
@@ -26,6 +28,22 @@ struct ProfileView: View {
     }
     .onChange(of: loadingMethodType) { newValue in
       viewModel.loadData(newValue)
+    }
+  }
+
+  private var shadowColor: Color {
+    if colorScheme == .dark {
+      return .secondary
+    } else {
+      return .primary.opacity(0.20)
+    }
+  }
+
+  private var backgroundColor: Color {
+    if colorScheme == .light {
+      return Color(UIColor.systemBackground)
+    } else {
+      return Color(UIColor.secondarySystemBackground)
     }
   }
 
@@ -55,11 +73,11 @@ struct ProfileView: View {
       }
     }
     .frame(maxWidth: .infinity, alignment: .leading)
-    .background(.background)
+    .background(backgroundColor)
     .cornerRadius(8)
     .shadow(
-      color: .primary.opacity(0.20),
-      radius: 2,
+      color: shadowColor,
+      radius: 4,
       x: 0.0,
       y: 1.0
     )
@@ -84,5 +102,9 @@ struct ProfileView: View {
 struct ProfileView_Previews: PreviewProvider {
   static var previews: some View {
     ProfileView(url: "https://zddhub.com/assets/profile.json")
+      .preferredColorScheme(.light)
+
+    ProfileView(url: "https://zddhub.com/assets/profile.json")
+      .preferredColorScheme(.dark)
   }
 }
