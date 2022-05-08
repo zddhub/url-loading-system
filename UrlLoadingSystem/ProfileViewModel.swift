@@ -20,6 +20,9 @@ class ProfileViewModel: ObservableObject {
   var blog: String {
     model?.blog ?? ""
   }
+  var blogUrl: URL? {
+    URL(string: "https://\(blog)")
+  }
 
   var avatar: UIImage {
     guard let _ = avatarData else {

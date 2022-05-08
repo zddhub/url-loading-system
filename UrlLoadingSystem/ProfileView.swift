@@ -68,7 +68,7 @@ struct ProfileView: View {
 
         HStack {
           Image(systemName: "link")
-          Text("\(viewModel.blog)")
+          Link("\(viewModel.blog)", destination: viewModel.blogUrl!)
         }
       }
     }
