@@ -45,9 +45,7 @@ class NormalApi: LoadingMethod {
         return
       }
 
-      DispatchQueue.main.async {
-        self.loadingMethod.model.send(model)
-      }
+      self.loadingMethod.model.send(model)
       self.data = nil
     }
 
